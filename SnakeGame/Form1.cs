@@ -10,11 +10,47 @@ using System.Windows.Forms;
 
 namespace SnakeGame
 {
-    public partial class Form1 : Form
+    public partial class frmSnake : Form
     {
-        public Form1()
+        Random rand;
+        enum GameBoardFields
+        {
+            Free,
+            Snake,
+            Bonus
+        };
+
+        enum Directions
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        };
+
+        struct SnakeCoordinates
+        {
+            public int x;
+            public int y;
+        }
+
+        GameBoardFields[,] gameBoardField;
+        SnakeCoordinates[] snakeXY;
+        int snakeLength;
+        Directions directions;
+        Graphics g;
+
+        public frmSnake()
         {
             InitializeComponent();
+            gameBoardField = new GameBoardFields[11, 11];
+            snakeXY = new SnakeCoordinates[100];
+            rand = new Random();
+        }
+
+        private void frmSnake_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
