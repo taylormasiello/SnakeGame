@@ -87,6 +87,7 @@ namespace SnakeGame
 
             direction = Directions.Up; //intial direction
             snakeLength = 3; //intial length
+            this.Text = "Snake - score: " + snakeLength;
 
             for (int i = 0; i < 4; i++)
             {
@@ -199,12 +200,12 @@ namespace SnakeGame
                 gameBoardField[snakeXY[snakeLength].x, snakeXY[snakeLength].y] = GameBoardFields.Snake;
                 snakeLength++;
 
+                this.Text = "Snake - score: " + snakeLength; //places text on top of form, using snakeLength as dynamically changing score
+
                 if (snakeLength < 96) //if snakeLength > 96, gameboard full; w/o, do/while loop of Bonus() would become an infinite loop
                 {
                     Bonus();
                 }
-
-                this.Text = "Snake - score: " + snakeLength; //places text on top of form, using snakeLength as dynamically changing score
             }
 
             //draw the head
